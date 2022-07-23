@@ -12,12 +12,11 @@
 		5F1DDBD52887B776003F3A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1DDBD42887B776003F3A50 /* Assets.xcassets */; };
 		5F1DDBD82887B776003F3A50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1DDBD72887B776003F3A50 /* Preview Assets.xcassets */; };
 		5F1DDBDA2887B776003F3A50 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1DDBD92887B776003F3A50 /* Persistence.swift */; };
-		5F1DDBDD2887B776003F3A50 /* Devote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F1DDBDB2887B776003F3A50 /* Devote.xcdatamodeld */; };
 		5F4CC0412887B86A00136C5A /* sound-ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F4CC03E2887B86900136C5A /* sound-ding.mp3 */; };
 		5F4CC0422887B86A00136C5A /* sound-rise.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F4CC03F2887B86A00136C5A /* sound-rise.mp3 */; };
 		5F4CC0432887B86A00136C5A /* sound-tap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F4CC0402887B86A00136C5A /* sound-tap.mp3 */; };
-		5F4CC0502887D6D400136C5A /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CC04E2887D6D400136C5A /* Item+CoreDataClass.swift */; };
-		5F4CC0512887D6D400136C5A /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CC04F2887D6D400136C5A /* Item+CoreDataProperties.swift */; };
+		5F4CC0532887DCB500136C5A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4CC0522887DCB500136C5A /* Constants.swift */; };
+		5F739152288C3EB900AC7DA6 /* Devote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F1DDBDB2887B776003F3A50 /* Devote.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +31,7 @@
 		5F4CC03F2887B86A00136C5A /* sound-rise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-rise.mp3"; sourceTree = "<group>"; };
 		5F4CC0402887B86A00136C5A /* sound-tap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-tap.mp3"; sourceTree = "<group>"; };
 		5F4CC04A2887BB8D00136C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5F4CC04E2887D6D400136C5A /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5F4CC04F2887D6D400136C5A /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5F4CC0522887DCB500136C5A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +48,6 @@
 		5F1DDBC42887B773003F3A50 = {
 			isa = PBXGroup;
 			children = (
-				5F4CC04E2887D6D400136C5A /* Item+CoreDataClass.swift */,
-				5F4CC04F2887D6D400136C5A /* Item+CoreDataProperties.swift */,
 				5F1DDBCF2887B773003F3A50 /* Devote */,
 				5F1DDBCE2887B773003F3A50 /* Products */,
 			);
@@ -111,6 +107,7 @@
 		5F4CC0462887B8A700136C5A /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5F4CC0522887DCB500136C5A /* Constants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -211,11 +208,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F4CC0512887D6D400136C5A /* Item+CoreDataProperties.swift in Sources */,
-				5F4CC0502887D6D400136C5A /* Item+CoreDataClass.swift in Sources */,
+				5F739152288C3EB900AC7DA6 /* Devote.xcdatamodeld in Sources */,
 				5F1DDBDA2887B776003F3A50 /* Persistence.swift in Sources */,
 				5F1DDBD32887B773003F3A50 /* ContentView.swift in Sources */,
-				5F1DDBDD2887B776003F3A50 /* Devote.xcdatamodeld in Sources */,
+				5F4CC0532887DCB500136C5A /* Constants.swift in Sources */,
 				5F1DDBD12887B773003F3A50 /* DevoteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

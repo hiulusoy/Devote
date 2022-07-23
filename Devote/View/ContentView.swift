@@ -9,6 +9,11 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    // MARK: - PROPERTY
+    
+    @State var task: String = "";
+    
+    // FETCHING DATA
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -16,40 +21,16 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
 
-    var body: some View {
-        NavigationView {
-         
-                List {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                        } label: {
-                            Text(item.timestamp!, formatter: itemFormatter)
-                        }
-                    }
-                    .onDelete(perform: deleteItems)
-                    //: LIST
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                    ToolbarItem {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
-                        }
-                    }
-            } 
+    // MARK: - FUNCTION
     
-            Text("Select an item")
-        } //: NAVIGATION VIEW
-    }
-
     private func addItem() {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-
+            newItem.id = UUID()
+            newItem.completion = false
+            newItem.task = task
+            
             do {
                 try viewContext.save()
             } catch {
@@ -75,15 +56,67 @@ struct ContentView: View {
             }
         }
     }
+    
+    // MARK: - BODY
+    var body: some View {
+        NavigationView {
+         
+            VStack {
+                VStack(spacing: 16){
+                    TextField("New Task",text: $task)
+                        .padding()
+                        .background(Color(UIColor.systemGray6))
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        addItem()
+                    },label: {
+                        Spacer()
+                        Text("SAVE")
+                        Spacer()
+                        
+                    })//:BUTTON
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .background(Color.pink)
+                    .cornerRadius(12)
+                    
+                }//: VSTACK
+                .padding()
+                List {
+                        ForEach(items) { item in
+                            VStack{
+                                Text(item.task ?? "")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                            }//:VSTACK
+                        }
+                        .onDelete(perform: deleteItems)
+                        //: LIST
+                    }
+                    
+            }//: VSTACK
+            .navigationBarTitle("Daily Tasks", displayMode: .large)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: addItem) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                }
+        }//: TOOLBAR
+            Text("Select an item")
+        } //: NAVIGATION VIEW
+    }
+
+ 
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
+// MARK: - PREVIEW
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)

@@ -54,14 +54,14 @@ struct NewTaskItemView: View {
                 },label: {
                     Spacer()
                     Text("SAVE")
+                        .font(.system(size: 24,weight: .bold ,design: .rounded))
                     Spacer()
                     
                 })//:BUTTON
                 .disabled(isButtonDisabled)
                 .padding()
-                .font(.headline)
                 .foregroundColor(.white)
-                .background(isButtonDisabled ? Color.gray : Color.pink)
+                .background(isButtonDisabled ? Color.blue : Color.pink)
                 .cornerRadius(12)
                 
             }//: VSTACK

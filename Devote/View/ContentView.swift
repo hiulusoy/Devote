@@ -113,6 +113,16 @@ struct ContentView: View {
                 
                 // MARK: - NEW TASK ITEM
                 
+                if showNewTaskItem {
+                    BlankView()
+                        .onTapGesture {
+                            withAnimation(){
+                                showNewTaskItem = false
+                            }
+                        }
+                    NewTaskItemView(isShowing: $showNewTaskItem)
+                }
+                
             }//: ZSTACK
             .onAppear(){
                 UITableView.appearance().backgroundColor = UIColor.clear
